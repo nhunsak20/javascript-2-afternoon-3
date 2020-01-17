@@ -29,6 +29,13 @@
 
 // Code Here 
 
+function first(names, callback) {
+  // for(let i = 0; i < names.length; i++) {
+  //   callback(names[i]);
+  // }
+  callback(names[0]);
+}
+
 // Do not edit the code below.
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 
@@ -42,12 +49,17 @@ first(names, function(firstName){
 
 ////////// PROBLEM 2 //////////
 
+
 /*
   Write a function called last that takes in an array and a callback function. 
   Then invoke the callback, passing in the last element in the array as the argument.
 */
 
 //Code Here
+
+function last(arr, callback) {
+  callback(arr[arr.length - 1])
+}
 
 // Do not edit the code below.
 last(names, function(lastName){
@@ -66,6 +78,9 @@ last(names, function(lastName){
 */
 
 //Code Here
+function multiply(num1, num2, callback) {
+  callback(num1 * num2);
+}
 
 // Do not edit the code below.
 multiply(4, 3, function(answer){
@@ -85,6 +100,14 @@ multiply(4, 3, function(answer){
 */
 
 //Code Here 
+function contains(arr, name, callback) {
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i] === name) {
+      return callback(true)
+    }
+  }
+  callback(false)
+}
 
 // Do not edit the code below.
 contains(names, 'Colt', function(result){
@@ -106,6 +129,16 @@ contains(names, 'Colt', function(result){
 */
 
 //Code Here
+function uniq(arr, callback) {
+  for(let i = 0; i < arr.length; i++){
+    for(let j = i + 1; j < arr.length; j++) {
+      if (arr[i] === arr[j]){
+        arr.splice(j, 1)
+      }
+    }
+  }
+  callback(arr)
+}
 
 // Do not edit the code below.
 uniq(names, function(uniqArr){
@@ -124,6 +157,12 @@ uniq(names, function(uniqArr){
 
 //Code Here 
 
+function each(names, callback) {
+  for(let i = 0; i < names.length; i++) {
+    callback(names[i], i);
+  }
+}
+
 // Do not edit the code below.
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
@@ -140,6 +179,14 @@ each(names, function(item, indice){
 */
 
 // Code here
+
+function getUserById(arr, id, callback) {
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i].id === id){
+      return callback(arr[i])
+    }
+  }
+}
 
 // Do not edit the code below.
 var users = [
